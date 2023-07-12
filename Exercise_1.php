@@ -97,6 +97,20 @@ class Circle extends Shape implements IShape {
     }
 }
 
+class InvalidShape extends Shape implements IShape {
+    public function description() {
+        return "Invalid shape.";
+    }
+
+    public function getArea() {
+        return "Invalid: Cannot calculate the area of an invalid shape.";
+    }
+
+    public function getPerimeter() {
+        return "Invalid: Cannot calculate the perimeter of an invalid shape.";
+    }
+}
+
 $shape1 = new Square(4);
 echo $shape1->description() . "<br>"; // Output: "Square has four equal sides."
 echo $shape1->getArea() . "<br>"; // Output: 16
@@ -116,5 +130,11 @@ $shape4 = new Circle(5);
 echo $shape4->description() . "<br>"; // Output: "Circle has no sides, only a curve."
 echo $shape4->getArea() . "<br>"; // Output: 78.539816339745
 echo $shape4->getPerimeter() . "<br>"; // Output: 31.415926535898
+
+$invalidShape = new InvalidShape();
+echo $invalidShape->description() . "<br>"; // Output: "Invalid shape."
+echo $invalidShape->getArea() . "<br>"; // Output: "Invalid: Cannot calculate the area of an invalid shape."
+echo $invalidShape->getPerimeter() . "<br>"; // Output: "Invalid: Cannot calculate the perimeter of an invalid shape."
+
 
 ?>
